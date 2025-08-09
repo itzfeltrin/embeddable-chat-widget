@@ -1,11 +1,16 @@
 {
-  "name": "embeddable-chat-widget",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@itzfeltrin/embeddable-chat-widget",
+  "version": "0.0.3",
   "type": "module",
+  "main": "dist/embeddable-chat-widget.iife.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "prepublishOnly": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
