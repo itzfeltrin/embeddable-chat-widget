@@ -21,6 +21,9 @@ export default defineConfig(({ command }) => {
           formats: ["iife"],
         },
       },
+      define: {
+        "process.env": {},
+      },
     };
   }
 });
