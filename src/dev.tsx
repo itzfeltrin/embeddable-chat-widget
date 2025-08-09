@@ -1,5 +1,8 @@
-import { mountApp } from "./main";
+import { mount } from "./main";
 
 document.addEventListener("DOMContentLoaded", () => {
-  mountApp("#root", { openRouterKey: import.meta.env.VITE_OPENROUTER_KEY });
+  mount({
+    selector: "#root",
+    openRouterKey: import.meta.env.VITE_OPENROUTER_KEY,
+  });
 });

@@ -1,13 +1,18 @@
-import { mountApp } from "./main";
+import { mount } from "./main";
 
 declare global {
+  interface WidgetConfig {
+    selector: string;
+    openRouterKey: string;
+  }
+
   interface Window {
     ChatWidget: {
-      mount: (selector?: string, config?: { openRouterKey: string }) => void;
+      mount: (config: WidgetConfig) => void;
     };
   }
 }
 
 window.ChatWidget = {
-  mount: mountApp,
+  mount,
 };

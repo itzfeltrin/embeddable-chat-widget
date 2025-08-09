@@ -1,6 +1,6 @@
-import { useState } from "react";
 import logo from "../../../assets/logo.jpeg";
 import { clsx } from "../../utils";
+import { useLocalStorageState } from "../../hooks/useLocalStorageState";
 
 type Message = {
   role: "user" | "assistant";
@@ -12,7 +12,10 @@ type Props = {
 };
 
 export function Chat({ openRouterKey }: Props) {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useLocalStorageState<Message[]>(
+    "messages",
+    []
+  );
 
   async function sendMessage(message: string) {
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -44,13 +47,13 @@ export function Chat({ openRouterKey }: Props) {
         <span className="text-white font-medium">Chat Agent</span>
       </div>
       <div className="p-4 min-h-[300px] flex flex-col gap-4">
-        <div className="flex-1 flex flex-col gap-2 items-start max-h-[50dvh] overflow-y-auto">
+        <div className="flex-1 flex flex-col gap-4 items-start max-h-[50dvh] overflow-y-auto">
           {messages.map((message, index) => (
             <div
               key={index}
               className={clsx(
-                "p-2 rounded-md bg-grape-100",
-                message.role === "user" && "bg-white self-end"
+                "p-2 rounded-md bg-grape-100 max-w-4/5",
+                message.role === "user" && "bg-gray-100 self-end"
               )}
             >
               {message.content}
