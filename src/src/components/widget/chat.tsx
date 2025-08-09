@@ -2,21 +2,23 @@ import { useState } from "react";
 import logo from "../../../assets/logo.jpeg";
 import { clsx } from "../../utils";
 
-const apiKey = import.meta.env.VITE_OPENROUTER_KEY;
-
 type Message = {
   role: "user" | "assistant";
   content: string;
 };
 
-export function Chat() {
+type Props = {
+  openRouterKey: string;
+};
+
+export function Chat({ openRouterKey }: Props) {
   const [messages, setMessages] = useState<Message[]>([]);
 
   async function sendMessage(message: string) {
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${openRouterKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
