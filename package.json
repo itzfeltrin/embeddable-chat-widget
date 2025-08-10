@@ -1,6 +1,6 @@
 {
   "name": "@itzfeltrin/embeddable-chat-widget",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "main": "dist/embeddable-chat-widget.iife.js",
   "types": "dist/main.d.ts",
