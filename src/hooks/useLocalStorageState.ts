@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { z, ZodType } from "zod/v4";
 
 export function useLocalStorageState<T>(
   key: string,
-  initialValue: T
+  initialValue: T,
+  schema?: ZodType<T>
 ): [T, (value: (prev: T) => T) => void] {
   const [state, setState] = useState(initialValue);
 
@@ -14,8 +16,14 @@ export function useLocalStorageState<T>(
     firstRender.current = false;
 
     const stored = localStorage.getItem(key);
-    if (stored !== null) {
-      setState(JSON.parse(stored) as T);
+    if (stored === null) {
+      localStorage.setItem(key, JSON.stringify(initialValue));
+    } else {
+      if (schema) {
+        setState(schema.parse(JSON.parse(stored)));
+      } else {
+        setState(JSON.parse(stored) as T);
+      }
     }
   }, []);
 

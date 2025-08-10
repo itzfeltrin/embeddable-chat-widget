@@ -9,6 +9,10 @@ export function Widget({ openRouterKey }: { openRouterKey: string }) {
     setOpen((prev) => !prev);
   };
 
+  if (!openRouterKey) {
+    console.error("Missing openRouterKey");
+  }
+
   return (
     <div className="fixed bottom-0 right-0 bg-white flex flex-col p-8 items-end gap-8">
       {open && <Chat openRouterKey={openRouterKey} />}
