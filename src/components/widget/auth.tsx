@@ -28,7 +28,7 @@ export function Auth({ onLogin }: Props) {
         onSubmit={onSubmit}
         className="w-full max-w-4/5 p-4 rounded-lg ring ring-white backdrop-blur-sm bg-[#fff4] shadow-sm mx-auto flex flex-col items-stretch gap-4 justify-center"
       >
-        <label className="text-sm font-medium text-grape-700" htmlFor="email">
+        <label className="text-sm font-medium text-brand-700" htmlFor="email">
           <span className="block mb-1 text-sm">E-mail</span>
           <input
             id="email"
@@ -42,11 +42,11 @@ export function Auth({ onLogin }: Props) {
               }));
             }}
             placeholder="johnmcdoe@gmail.com"
-            className="p-2 pr-8 ring ring-grape-300 rounded-lg w-full focus:outline-none focus:ring-grape-500 focus:ring-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+            className="p-2 pr-8 ring ring-brand-300 rounded-lg w-full focus:outline-none focus:ring-brand-500 focus:ring-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
           />
         </label>
         <label
-          className="text-sm font-medium text-grape-700"
+          className="text-sm font-medium text-brand-700"
           htmlFor="password"
         >
           <span className="block mb-1 text-sm">Password</span>
@@ -62,12 +62,12 @@ export function Auth({ onLogin }: Props) {
               }));
             }}
             placeholder="********"
-            className="p-2 pr-8 ring ring-grape-300 rounded-lg w-full focus:outline-none focus:ring-grape-500 focus:ring-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+            className="p-2 pr-8 ring ring-brand-300 rounded-lg w-full focus:outline-none focus:ring-brand-500 focus:ring-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm"
           />
         </label>
         <button
           type="submit"
-          className="bg-linear-to-r from-grape-400 to-grape-500 p-2 rounded-lg cursor-pointer text-white text-sm"
+          className="bg-linear-to-r from-brand-400 to-brand-500 p-2 rounded-lg cursor-pointer text-white text-sm"
         >
           Login
         </button>

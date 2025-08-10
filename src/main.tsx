@@ -9,6 +9,12 @@ export function mount(config: WidgetConfig) {
     return;
   }
 
+  if (config.colorPalette) {
+    Object.entries(config.colorPalette).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(`--color-brand-${key}`, value);
+    });
+  }
+
   const root = createRoot(container);
   root.render(<Widget openRouterKey={config.openRouterKey} />);
 }

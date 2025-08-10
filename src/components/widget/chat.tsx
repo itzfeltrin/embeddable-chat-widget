@@ -96,7 +96,7 @@ export function Chat({ openRouterKey }: Props) {
 
   return (
     <section className="bg-white max-w-screen sm:w-[400px] shadow-md rounded-2xl overflow-clip">
-      <div className="p-4 bg-linear-to-r from-grape-400 to-grape-500 flex gap-4 items-center">
+      <div className="p-4 bg-linear-to-r from-brand-400 to-brand-500 flex gap-4 items-center">
         <div className="relative">
           <img
             src={logo}
@@ -147,7 +147,7 @@ export function Chat({ openRouterKey }: Props) {
               <p
                 key={index}
                 className={clsx(
-                  "p-2 rounded-md bg-grape-100 max-w-4/5 text-sm",
+                  "p-2 rounded-md bg-brand-100 max-w-4/5 text-sm",
                   message.role === "user" && "bg-gray-100 self-end"
                 )}
               >
@@ -172,7 +172,7 @@ export function Chat({ openRouterKey }: Props) {
                 }}
                 disabled={loading || shared.isMaintenance}
                 placeholder="Send your message"
-                className="p-2 pr-8 ring ring-grape-100 rounded-lg w-full focus:outline-none focus:ring-grape-500 focus:ring-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 pr-8 ring ring-brand-100 rounded-lg w-full focus:outline-none focus:ring-brand-500 focus:ring-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 ref={inputRef}
               />
               <div className="absolute top-1/2 right-2 -translate-y-1/2">
@@ -184,7 +184,7 @@ export function Chat({ openRouterKey }: Props) {
                     className="cursor-pointer rotate-315 disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={shared.isMaintenance || input.trim().length === 0}
                   >
-                    <Airplane className="size-4 text-grape-500 stroke-2" />
+                    <Airplane className="size-4 text-brand-500 stroke-2" />
                   </button>
                 )}
               </div>
