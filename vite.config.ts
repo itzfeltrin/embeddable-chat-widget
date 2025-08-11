@@ -22,13 +22,18 @@ export default defineConfig(({ command }) => {
         },
         rollupOptions: {
           external: (id) => {
-            // mark react and react-dom as external, but NOT your source files
-            return id === "react" || id === "react-dom";
+            return (
+              id === "react" ||
+              id === "react-dom" ||
+              id.startsWith("react/") ||
+              id.startsWith("react-dom/")
+            );
           },
           output: {
             globals: {
               react: "React",
               "react-dom": "ReactDOM",
+              "react/jsx-runtime": "jsxRuntime",
             },
           },
         },
