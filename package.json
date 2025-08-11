@@ -10,7 +10,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/embeddable-chat-widget.es.js",
       "require": "./dist/embeddable-chat-widget.cjs.js"
-    }
+    },
+    "./dist/style.css": "./dist/embeddable-chat-widget.css"
   },
   "files": [
     "dist"
