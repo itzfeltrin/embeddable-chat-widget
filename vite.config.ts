@@ -2,13 +2,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import tailwindcss from "@tailwindcss/vite";
 
-// https://vite.dev/config/
 export default defineConfig(({ command }) => {
   if (command === "serve") {
     return {
       plugins: [react(), tailwindcss()],
-      build: undefined,
-      root: undefined,
     };
   } else {
     return {
@@ -22,15 +19,13 @@ export default defineConfig(({ command }) => {
             format === "iife"
               ? "embeddable-chat-widget.iife.js"
               : `embeddable-chat-widget.${format}.js`,
-          rollupOptions: {
-            external: () => {
-              return true;
-            },
-            output: {
-              globals: {
-                react: "React",
-                "react-dom": "ReactDOM",
-              },
+        },
+        rollupOptions: {
+          external: () => true,
+          output: {
+            globals: {
+              react: "React",
+              "react-dom": "ReactDOM",
             },
           },
         },
