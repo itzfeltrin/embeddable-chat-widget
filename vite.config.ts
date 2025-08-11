@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => {
       plugins: [react(), tailwindcss()],
       build: {
         lib: {
-          entry: "src/index.ts",
+          entry: "src/index.tsx",
           name: "ChatWidget",
           formats: ["es", "cjs", "iife"],
           fileName: (format) =>
