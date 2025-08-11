@@ -29,7 +29,7 @@ export function Actions({ onReset }: Props) {
       </button>
       {open && (
         <div
-          className="bg-white absolute top-full right-0 mt-2 rounded-md shadow-md overflow-clip z-20"
+          className="bg-white absolute top-full right-0 mt-2 rounded-md shadow-md overflow-clip z-50"
           ref={actionsRef}
         >
           <ul className="list-none">

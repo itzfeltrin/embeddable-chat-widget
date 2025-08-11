@@ -95,7 +95,7 @@ export function Chat({ openRouterKey }: Props) {
   }, [messages.length]);
 
   return (
-    <section className="bg-white max-w-screen sm:w-[400px] shadow-md rounded-2xl overflow-clip">
+    <section className="bg-white max-w-screen sm:w-[400px] shadow-md rounded-2xl overflow-clip z-40">
       <div className="p-4 bg-linear-to-r from-brand-400 to-brand-500 flex gap-4 items-center">
         <div className="relative">
           <img
@@ -147,7 +147,7 @@ export function Chat({ openRouterKey }: Props) {
               <p
                 key={index}
                 className={clsx(
-                  "p-2 rounded-md bg-brand-100 max-w-4/5 text-sm",
+                  "p-2 rounded-md bg-brand-100 max-w-4/5 text-sm text-black",
                   message.role === "user" && "bg-gray-100 self-end"
                 )}
               >
