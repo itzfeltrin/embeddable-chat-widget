@@ -21,7 +21,10 @@ export default defineConfig(({ command }) => {
               : `embeddable-chat-widget.${format}.js`,
         },
         rollupOptions: {
-          external: () => true,
+          external: (id) => {
+            // mark react and react-dom as external, but NOT your source files
+            return id === "react" || id === "react-dom";
+          },
           output: {
             globals: {
               react: "React",
