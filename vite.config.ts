@@ -22,21 +22,21 @@ export default defineConfig(({ command }) => {
             format === "iife"
               ? "embeddable-chat-widget.iife.js"
               : `embeddable-chat-widget.${format}.js`,
+          rollupOptions: {
+            external: () => {
+              return true;
+            },
+            output: {
+              globals: {
+                react: "React",
+                "react-dom": "ReactDOM",
+              },
+            },
+          },
         },
       },
       define: {
         "process.env": {},
-      },
-      rollupOptions: {
-        external: () => {
-          return true;
-        },
-        output: {
-          globals: {
-            react: "React",
-            "react-dom": "ReactDOM",
-          },
-        },
       },
     };
   }
