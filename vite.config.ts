@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => {
       plugins: [react(), tailwindcss()],
       build: {
         lib: {
-          entry: "src/index.tsx",
+          entry: "src/index.ts",
           name: "ChatWidget",
           formats: ["es", "cjs", "iife"],
           fileName: (format) =>
@@ -28,11 +28,8 @@ export default defineConfig(({ command }) => {
         "process.env": {},
       },
       rollupOptions: {
-        external: (id: string, { format }) => {
-          if (format === "iife") {
-            return false; // bundle React for IIFE
-          }
-          return ["react", "react-dom"].includes(id);
+        external: () => {
+          return true;
         },
         output: {
           globals: {

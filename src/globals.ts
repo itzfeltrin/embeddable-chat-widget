@@ -1,3 +1,5 @@
+import {} from "./mount";
+
 declare global {
   interface WidgetConfig {
     selector: string;
@@ -25,7 +27,5 @@ declare global {
 }
 
 window.ChatWidget = {
-  mount: () => {},
+  mount,
 };
-
-export {};
