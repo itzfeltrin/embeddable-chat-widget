@@ -1,4 +1,4 @@
-import { mount } from "./main";
+import { mount } from "./index";
 
 declare global {
   interface WidgetConfig {

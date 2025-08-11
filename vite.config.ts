@@ -15,29 +15,27 @@ export default defineConfig(({ command }) => {
       plugins: [react(), tailwindcss()],
       build: {
         lib: {
-          entry: "src/main.tsx",
+          entry: "src/index.ts",
           name: "ChatWidget",
-          fileName: "embeddable-chat-widget",
-          formats: ["iife"],
+          formats: ["es", "cjs", "iife"],
+          fileName: (format) =>
+            format === "iife" ? "widget.iife.js" : `widget.${format}.js`,
         },
       },
       define: {
         "process.env": {},
       },
+      rollupOptions: {
+        external: (id: string) => {
+          return id === "react" || id === "react-dom";
+        },
+        output: {
+          globals: {
+            react: "React",
+            "react-dom": "ReactDOM",
+          },
+        },
+      },
     };
   }
 });
-// export default defineConfig({
-//   plugins: [react(), tailwindcss()],
-//   build: {
-//     lib: {
-//       entry: "src/main.tsx",
-//       name: "EmbeddableChatWidget",
-//       fileName: "embeddable-chat-widget",
-//       formats: ["iife"],
-//     },
-//   },
-//   define: {
-//     "process.env": {},
-//   },
-// });
