@@ -19,7 +19,9 @@ export default defineConfig(({ command }) => {
           name: "ChatWidget",
           formats: ["es", "cjs", "iife"],
           fileName: (format) =>
-            format === "iife" ? "widget.iife.js" : `widget.${format}.js`,
+            format === "iife"
+              ? "embeddable-chat-widget.iife.js"
+              : `widget.${format}.js`,
         },
       },
       define: {

@@ -2,14 +2,21 @@
   "name": "@itzfeltrin/embeddable-chat-widget",
   "version": "0.0.8",
   "type": "module",
-  "main": "dist/embeddable-chat-widget.iife.js",
-  "types": "dist/main.d.ts",
+  "main": "dist/embeddable-chat-widget.cjs.js",
+  "module": "dist/embeddable-chat-widget.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/embeddable-chat-widget.es.js",
+      "require": "./dist/embeddable-chat-widget.cjs.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build && tsc --emitDeclarationOnly",
     "prepublishOnly": "npm run build",
     "lint": "eslint .",
     "preview": "vite preview"
