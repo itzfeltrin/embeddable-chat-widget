@@ -14,7 +14,7 @@ export function Widget({ openRouterKey }: { openRouterKey: string }) {
   }
 
   return (
-    <div className="fixed bottom-0 right-0 bg-white flex flex-col p-8 items-end gap-8">
+    <div className="fixed bottom-0 right-0 flex flex-col p-8 items-end gap-8">
       {open && <Chat openRouterKey={openRouterKey} />}
       <Bubble open={open} onToggle={onToggle} />
     </div>

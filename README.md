@@ -18,10 +18,10 @@ A lightweight, customizable chat widget built with React, TypeScript, and Vite. 
 npm install embeddable-chat-widget
 ```
 
-**Or via yarn:**
+**Or via pnpm:**
 
 ```sh
-yarn add embeddable-chat-widget
+pnpm add embeddable-chat-widget
 ```
 
 ## Usage
@@ -29,6 +29,7 @@ yarn add embeddable-chat-widget
 ### As a React Component
 
 ```tsx
+import "@itzfeltrin/embeddable-chat-widget/dist/style.css";
 import { Widget } from "@itzfeltrin/embeddable-chat-widget";
 
 function App() {
@@ -36,16 +37,42 @@ function App() {
 }
 ```
 
+## Customizing Brand Colors
+
+To customize the brand colors of the chat widget, you can define CSS variables in your stylesheet. Add variables ranging from `--color-brand-50` to `--color-brand-950` to override the default color palette. For example:
+
+```css
+:root {
+  --color-brand-50: #f2f7fb;
+  --color-brand-100: #d8e9f4;
+  --color-brand-200: #b2d4ea;
+  --color-brand-300: #7fb8dc;
+  --color-brand-400: #4c9bce;
+  --color-brand-500: #0071ba;
+  --color-brand-600: #00609e;
+  --color-brand-700: #004f82;
+  --color-brand-800: #00385d;
+  --color-brand-900: #002137;
+  --color-brand-950: #00101b;
+}
+```
+
+Place these variables in your global CSS to apply your custom brand colors to
+
 ### As a Script Tag
 
 Add this to your HTML:
 
 ```html
+<!-- React and ReactDOM (required for the widget) -->
+<script src="https://unpkg.com/react@19.1.1/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@19.1.1/umd/react-dom.production.min.js"></script>
+
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@itzfeltrin/embeddable-chat-widget@0.0.17/dist/embeddable-chat-widget.css"
+  href="https://cdn.jsdelivr.net/npm/@itzfeltrin/embeddable-chat-widget@latest/dist/embeddable-chat-widget.css"
 />
-<script src="https://cdn.jsdelivr.net/npm/@itzfeltrin/embeddable-chat-widget@0.0.17/dist/embeddable-chat-widget.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@itzfeltrin/embeddable-chat-widget@latest/dist/embeddable-chat-widget.iife.js"></script>
 
 <script>
   ChatWidget.mount({
