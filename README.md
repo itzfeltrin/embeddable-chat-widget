@@ -1,69 +1,93 @@
-# React + TypeScript + Vite
+# Embeddable Chat Widget
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight, customizable chat widget built with React, TypeScript, and Vite. Easily embed real-time chat functionality into any website or web application.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ⚡️ Fast and modern React + TypeScript codebase
+- 🛠️ Easy to embed in any site with a single script tag or npm install
+- 🎨 Customizable styles and behavior
+- 🔒 Built-in support for secure communication
+- 🔌 Extensible with your own backend or chat provider
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Via npm:**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm install embeddable-chat-widget
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Or via yarn:**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```sh
+yarn add embeddable-chat-widget
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
+## Usage
+
+### As a React Component
+
+```tsx
+import { Widget } from "@itzfeltrin/embeddable-chat-widget";
+
+function App() {
+  return <Widget openRouterKey="YOUR_API_KEY" />;
+}
+```
+
+### As a Script Tag
+
+Add this to your HTML:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@itzfeltrin/embeddable-chat-widget@0.0.17/dist/embeddable-chat-widget.css"
+/>
+<script src="https://cdn.jsdelivr.net/npm/@itzfeltrin/embeddable-chat-widget@0.0.17/dist/embeddable-chat-widget.iife.js"></script>
+
+<script>
+  ChatWidget.mount({
+    selector: "#root",
+    openRouterKey: "YOUR_API_KEY",
+    colorPalette: {
+      50: "#f2f7fb",
+      100: "#d8e9f4",
+      200: "#b2d4ea",
+      300: "#7fb8dc",
+      400: "#4c9bce",
+      500: "#0071ba",
+      600: "#00609e",
+      700: "#004f82",
+      800: "#00385d",
+      900: "#002137",
+      950: "#00101b",
     },
-  },
-])
+  });
+</script>
+```
+
+## Configuration
+
+| Prop/Option     | Type   | Description                                                                    |
+| --------------- | ------ | ------------------------------------------------------------------------------ |
+| `selector`      | string | Element the widget is going to mount onto (required when using the script tag) |
+| `openRouterKey` | string | Your API key (required)                                                        |
+| `colorPalette`  | object | Color palette (optional — available only via `mount`)                          |
+
+## Development
+
+Clone the repo and install dependencies:
+
+```sh
+git clone git@github.com:itzfeltrin/embeddable-chat-widget.git
+cd embeddable-chat-widget
+pnpm install
+```
+
+Start the dev server:
+
+```sh
+pnpm dev
 ```
