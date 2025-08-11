@@ -14,6 +14,12 @@ importers:
       jotai:
         specifier: ^2.13.0
         version: 2.13.0(@types/react@19.1.9)(react@19.1.1)
+      react:
+        specifier: ^19.1.1
+        version: 19.1.1
+      react-dom:
+        specifier: ^19.1.1
+        version: 19.1.1(react@19.1.1)
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
@@ -45,12 +51,6 @@ importers:
       globals:
         specifier: ^16.3.0
         version: 16.3.0
-      react:
-        specifier: ^19.1.1
-        version: 19.1.1
-      react-dom:
-        specifier: ^19.1.1
-        version: 19.1.1(react@19.1.1)
       typescript:
         specifier: ~5.8.3
         version: 5.8.3
