@@ -4,13 +4,14 @@
   "type": "module",
   "main": "dist/embeddable-chat-widget.cjs.js",
   "module": "dist/embeddable-chat-widget.es.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/embeddable-chat-widget.es.js",
-      "require": "./dist/embeddable-chat-widget.cjs.js"
+      "require": "./dist/embeddable-chat-widget.cjs.js",
+      "types": "./dist/index.d.ts"
     }
   },
-  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
