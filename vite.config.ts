@@ -28,8 +28,11 @@ export default defineConfig(({ command }) => {
         "process.env": {},
       },
       rollupOptions: {
-        external: (id: string) => {
-          return id === "react" || id === "react-dom";
+        external: (id: string, { format }) => {
+          if (format === "iife") {
+            return false; // bundle React for IIFE
+          }
+          return ["react", "react-dom"].includes(id);
         },
         output: {
           globals: {
